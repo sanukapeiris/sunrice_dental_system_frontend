@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.sunrise.dental.frontend.controller.DashboardController"
+      spacing="20"
+      styleClass="dashboard">
+
+    <padding>
+        <Insets top="30" right="40" bottom="30" left="40"/>
+    </padding>
+
+    <HBox alignment="CENTER" spacing="10">
+
+        <Label text="SUNRISE DENTAL CLINIC"
+               styleClass="dashboard-title"/>
+
+    </HBox>
+
+    <Label text="Management System"
+           styleClass="dashboard-subtitle"/>
+
+    <Label text="Dashboard"
+           styleClass="dashboard-heading"/>
+
+    <GridPane hgap="20" vgap="20">
+
+        <!-- Patients -->
+        <Button text="PATIENTS"
+                onAction="#openPatients"
+                styleClass="dashboard-button"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="0"/>
+
+        <!-- Dentists -->
+        <Button text="DENTISTS"
+                onAction="#openDentists"
+                styleClass="dashboard-button"
+                GridPane.columnIndex="1"
+                GridPane.rowIndex="0"/>
+
+        <!-- Treatments -->
+        <Button text="TREATMENTS"
+                onAction="#openTreatments"
+                styleClass="dashboard-button"
+                GridPane.columnIndex="2"
+                GridPane.rowIndex="0"/>
+
+        <!-- Appointments -->
+        <Button text="APPOINTMENTS"
+                onAction="#openAppointments"
+                styleClass="dashboard-button"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="1"/>
+
+        <!-- Billing -->
+        <Button text="BILLING"
+                onAction="#openBilling"
+                styleClass="dashboard-button"
+                GridPane.columnIndex="1"
+                GridPane.rowIndex="1"/>
+
+        <!-- Reports -->
+        <Button text="REPORTS"
+                onAction="#openReports"
+                styleClass="dashboard-button"
+                GridPane.columnIndex="2"
+                GridPane.rowIndex="1"/>
+
+        <!-- Help -->
+        <Button text="HELP"
+                onAction="#openHelp"
+                styleClass="dashboard-button"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="2"/>
+
+        <!-- Exit -->
+        <Button text="EXIT"
+                onAction="#handleExit"
+                styleClass="exit-button"
+                GridPane.columnIndex="1"
+                GridPane.rowIndex="2"/>
+
+    </GridPane>
+
+</VBox>
