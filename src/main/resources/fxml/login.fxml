@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.sunrise.dental.frontend.controller.LoginController"
+      alignment="CENTER"
+      spacing="15"
+      prefWidth="500"
+      prefHeight="600"
+      styleClass="login-container">
+
+    <padding>
+        <Insets top="40" right="50" bottom="40" left="50"/>
+    </padding>
+
+    <Label text="SUNRISE DENTAL CLINIC"
+           styleClass="title"/>
+
+    <Label text="Management System"
+           styleClass="subtitle"/>
+
+    <Label text="Staff Login"
+           styleClass="login-heading"/>
+
+    <TextField fx:id="usernameField"
+               promptText="Username"
+               maxWidth="320"
+               styleClass="input-field"/>
+
+    <PasswordField fx:id="passwordField"
+                   promptText="Password"
+                   maxWidth="320"
+                   styleClass="input-field"/>
+
+    <Button text="LOGIN"
+            onAction="#handleLogin"
+            maxWidth="320"
+            styleClass="login-button"/>
+
+    <Label fx:id="messageLabel"
+           text=""
+           wrapText="true"
+           styleClass="message"/>
+
+    <Label text="Authorized Staff Only"
+           styleClass="footer"/>
+
+</VBox>
