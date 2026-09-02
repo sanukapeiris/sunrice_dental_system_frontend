@@ -61,3 +61,54 @@
     -fx-font-size: 12px;
     -fx-text-fill: #95a5a6;
 }
+/* =========================
+   DASHBOARD
+   ========================= */
+
+.dashboard {
+    -fx-background-color: #f5f7fa;
+}
+
+.dashboard-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.dashboard-subtitle {
+    -fx-font-size: 17px;
+    -fx-alignment: center;
+}
+
+.dashboard-heading {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 0 10px 0;
+}
+
+.dashboard-button {
+    -fx-pref-width: 180px;
+    -fx-pref-height: 90px;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+}
+
+.exit-button {
+    -fx-pref-width: 180px;
+    -fx-pref-height: 90px;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+}
+
+
+/* =========================
+   PATIENTS
+   ========================= */
+.dashboard-button-small {
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6px;
+}

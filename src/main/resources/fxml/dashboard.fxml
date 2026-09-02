@@ -42,9 +42,7 @@
         <!-- Dentists -->
         <Button text="DENTISTS"
                 onAction="#openDentists"
-                styleClass="dashboard-button"
-                GridPane.columnIndex="1"
-                GridPane.rowIndex="0"/>
+                styleClass="dashboard-button-small"/>
 
         <!-- Treatments -->
         <Button text="TREATMENTS"
