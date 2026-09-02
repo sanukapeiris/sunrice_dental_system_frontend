@@ -1,5 +1,19 @@
 package com.sunrise.dental.frontend.controller;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -61,10 +75,7 @@ public class LoginController {
             if (response.statusCode() >= 200 &&
                     response.statusCode() < 300) {
 
-                messageLabel.setText("Login successful!");
-
-                System.out.println("Login successful");
-                System.out.println("Response: " + response.body());
+                openDashboard();
 
             } else {
 
@@ -80,6 +91,45 @@ public class LoginController {
             );
 
             e.printStackTrace();
+
+        }
+    }
+
+    private void openDashboard() {
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/fxml/dashboard.fxml")
+            );
+
+            Parent dashboard = loader.load();
+
+            Scene dashboardScene = new Scene(dashboard);
+
+            dashboardScene.getStylesheets().add(
+                    getClass()
+                            .getResource("/css/style.css")
+                            .toExternalForm()
+            );
+
+            Stage stage = (Stage) usernameField
+                    .getScene()
+                    .getWindow();
+
+            stage.setTitle("Sunrise Dental Management System - Dashboard");
+            stage.setScene(dashboardScene);
+            stage.setWidth(800);
+            stage.setHeight(600);
+            stage.centerOnScreen();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            messageLabel.setText(
+                    "Unable to open dashboard."
+            );
         }
     }
 }
