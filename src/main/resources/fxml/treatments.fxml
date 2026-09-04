@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.sunrise.dental.frontend.controller.TreatmentController">
+
+    <top>
+
+        <HBox alignment="CENTER_LEFT"
+              spacing="20"
+              styleClass="page-header">
+
+            <padding>
+                <Insets top="20" right="25"
+                        bottom="20" left="25"/>
+            </padding>
+
+            <Button text="← Back to Dashboard"
+                    onAction="#goBack"
+                    styleClass="back-button"/>
+
+            <VBox spacing="3">
+
+                <Label text="Treatment Management"
+                       styleClass="page-title"/>
+
+                <Label text="Manage dental treatments and costs"
+                       styleClass="page-subtitle"/>
+
+            </VBox>
+
+        </HBox>
+
+    </top>
+
+    <center>
+
+        <VBox spacing="18">
+
+            <padding>
+                <Insets top="20" right="25"
+                        bottom="20" left="25"/>
+            </padding>
+
+            <GridPane hgap="15" vgap="12">
+
+                <Label text="Treatment Name:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"/>
+
+                <TextField fx:id="nameField"
+                           promptText="Enter treatment name"
+                           prefWidth="350"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"/>
+
+                <Label text="Cost:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"/>
+
+                <TextField fx:id="costField"
+                           promptText="Enter treatment cost"
+                           prefWidth="350"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="1"/>
+
+            </GridPane>
+
+            <HBox spacing="12">
+
+                <Button text="ADD TREATMENT"
+                        onAction="#addTreatment"
+                        styleClass="action-button"/>
+
+                <Button text="UPDATE"
+                        onAction="#updateTreatment"
+                        styleClass="action-button"/>
+
+                <Button text="DELETE"
+                        onAction="#deleteTreatment"
+                        styleClass="action-button"/>
+
+                <Button text="CLEAR"
+                        onAction="#clearFields"
+                        styleClass="action-button"/>
+
+                <Button text="REFRESH"
+                        onAction="#loadTreatments"
+                        styleClass="action-button"/>
+
+            </HBox>
+
+            <Label fx:id="messageLabel"
+                   styleClass="message-label"/>
+
+            <TableView fx:id="treatmentTable"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="idColumn"
+                                 text="ID"
+                                 prefWidth="80"/>
+
+                    <TableColumn fx:id="nameColumn"
+                                 text="Treatment"
+                                 prefWidth="300"/>
+
+                    <TableColumn fx:id="costColumn"
+                                 text="Cost"
+                                 prefWidth="180"/>
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
