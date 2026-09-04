@@ -1,91 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.sunrise.dental.frontend.controller.DashboardController"
-      spacing="20"
-      styleClass="dashboard">
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.sunrise.dental.frontend.controller.DashboardController">
 
-    <padding>
-        <Insets top="30" right="40" bottom="30" left="40"/>
-    </padding>
+    <center>
 
-    <HBox alignment="CENTER" spacing="10">
+        <VBox alignment="TOP_CENTER"
+              spacing="25">
 
-        <Label text="SUNRISE DENTAL CLINIC"
-               styleClass="dashboard-title"/>
+            <padding>
+                <Insets top="40"
+                        right="40"
+                        bottom="40"
+                        left="40"/>
+            </padding>
 
-    </HBox>
+            <!-- TITLE -->
+            <VBox alignment="CENTER"
+                  spacing="5">
 
-    <Label text="Management System"
-           styleClass="dashboard-subtitle"/>
+                <Label text="SUNRISE DENTAL CLINIC"
+                       styleClass="dashboard-title"/>
 
-    <Label text="Dashboard"
-           styleClass="dashboard-heading"/>
+                <Label text="Management System"
+                       styleClass="dashboard-subtitle"/>
 
-    <GridPane hgap="20" vgap="20">
+            </VBox>
 
-        <!-- Patients -->
-        <Button text="PATIENTS"
-                onAction="#openPatients"
-                styleClass="dashboard-button"
-                GridPane.columnIndex="0"
-                GridPane.rowIndex="0"/>
 
-        <!-- Dentists -->
-        <Button text="DENTISTS"
-                onAction="#openDentists"
-                styleClass="dashboard-button-small"/>
+            <!-- DASHBOARD HEADING -->
+            <Label text="Dashboard"
+                   styleClass="dashboard-heading"/>
 
-        <!-- Treatments -->
-        <Button text="TREATMENTS"
-                onAction="#openTreatments"
-                styleClass="dashboard-button"
-                GridPane.columnIndex="2"
-                GridPane.rowIndex="0"/>
 
-        <!-- Appointments -->
-        <Button text="APPOINTMENTS"
-                onAction="#openAppointments"
-                styleClass="dashboard-button"
-                GridPane.columnIndex="0"
-                GridPane.rowIndex="1"/>
+            <!-- MENU BUTTONS -->
+            <GridPane hgap="20"
+                      vgap="20"
+                      alignment="CENTER">
 
-        <!-- Billing -->
-        <Button text="BILLING"
-                onAction="#openBilling"
-                styleClass="dashboard-button"
-                GridPane.columnIndex="1"
-                GridPane.rowIndex="1"/>
+                <!-- ROW 1 -->
 
-        <!-- Reports -->
-        <Button text="REPORTS"
-                onAction="#openReports"
-                styleClass="dashboard-button"
-                GridPane.columnIndex="2"
-                GridPane.rowIndex="1"/>
+                <Button text="PATIENTS"
+                        onAction="#openPatients"
+                        styleClass="dashboard-menu-button"
+                        GridPane.columnIndex="0"
+                        GridPane.rowIndex="0"/>
 
-        <!-- Help -->
-        <Button text="HELP"
-                onAction="#openHelp"
-                styleClass="dashboard-button"
-                GridPane.columnIndex="0"
-                GridPane.rowIndex="2"/>
+                <Button text="DENTISTS"
+                        onAction="#openDentists"
+                        styleClass="dashboard-menu-button"
+                        GridPane.columnIndex="1"
+                        GridPane.rowIndex="0"/>
 
-        <!-- Exit -->
-        <Button text="EXIT"
-                onAction="#handleExit"
-                styleClass="exit-button"
-                GridPane.columnIndex="1"
-                GridPane.rowIndex="2"/>
+                <Button text="TREATMENTS"
+                        onAction="#openTreatments"
+                        styleClass="dashboard-menu-button"
+                        GridPane.columnIndex="2"
+                        GridPane.rowIndex="0"/>
 
-    </GridPane>
 
-</VBox>
+                <!-- ROW 2 -->
+
+                <Button text="APPOINTMENTS"
+                        onAction="#openAppointments"
+                        styleClass="dashboard-menu-button"
+                        GridPane.columnIndex="0"
+                        GridPane.rowIndex="1"/>
+
+                <Button text="BILLING"
+                        onAction="#openBilling"
+                        styleClass="dashboard-menu-button"
+                        GridPane.columnIndex="1"
+                        GridPane.rowIndex="1"/>
+
+                <Button text="REPORTS"
+                        onAction="#openReports"
+                        styleClass="dashboard-menu-button"
+                        GridPane.columnIndex="2"
+                        GridPane.rowIndex="1"/>
+
+
+                <!-- ROW 3 -->
+
+                <Button text="HELP"
+                        onAction="#openHelp"
+                        styleClass="dashboard-menu-button"
+                        GridPane.columnIndex="0"
+                        GridPane.rowIndex="2"/>
+
+                <Button text="EXIT"
+                        onAction="#handleExit"
+                        styleClass="dashboard-exit-button"
+                        GridPane.columnIndex="1"
+                        GridPane.rowIndex="2"/>
+
+            </GridPane>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

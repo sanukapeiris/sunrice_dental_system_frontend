@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -13,96 +14,135 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.sunrise.dental.frontend.controller.PatientController"
-            styleClass="dashboard">
+            fx:controller="com.sunrise.dental.frontend.controller.PatientController">
+
+    <!-- ================= HEADER ================= -->
 
     <top>
 
-        <VBox spacing="5">
+        <HBox alignment="CENTER_LEFT"
+              spacing="20"
+              styleClass="page-header">
 
             <padding>
-                <Insets top="20" right="25" bottom="15" left="25"/>
+                <Insets top="20"
+                        right="25"
+                        bottom="20"
+                        left="25"/>
             </padding>
 
-            <Label text="SUNRISE DENTAL CLINIC"
-                   styleClass="dashboard-title"/>
+            <Button text="← Back to Dashboard"
+                    onAction="#goBack"
+                    styleClass="back-button"/>
 
-            <Label text="Patient Management"
-                   styleClass="dashboard-heading"/>
+            <VBox spacing="3">
 
-        </VBox>
+                <Label text="Patient Management"
+                       styleClass="page-title"/>
+
+                <Label text="Register and manage clinic patients"
+                       styleClass="page-subtitle"/>
+
+            </VBox>
+
+        </HBox>
 
     </top>
 
+
+    <!-- ================= MAIN CONTENT ================= -->
+
     <center>
 
-        <VBox spacing="15">
+        <VBox spacing="18">
 
             <padding>
-                <Insets top="10" right="25" bottom="20" left="25"/>
+                <Insets top="20"
+                        right="25"
+                        bottom="20"
+                        left="25"/>
             </padding>
 
-            <GridPane hgap="10" vgap="10">
 
-                <Label text="Name:"
+            <!-- ================= PATIENT FORM ================= -->
+
+            <GridPane hgap="15"
+                      vgap="12">
+
+                <Label text="Patient Name:"
                        GridPane.columnIndex="0"
                        GridPane.rowIndex="0"/>
 
                 <TextField fx:id="nameField"
-                           promptText="Patient name"
+                           promptText="Enter patient name"
+                           prefWidth="350"
                            GridPane.columnIndex="1"
                            GridPane.rowIndex="0"/>
+
 
                 <Label text="Address:"
                        GridPane.columnIndex="0"
                        GridPane.rowIndex="1"/>
 
                 <TextField fx:id="addressField"
-                           promptText="Patient address"
+                           promptText="Enter patient address"
+                           prefWidth="350"
                            GridPane.columnIndex="1"
                            GridPane.rowIndex="1"/>
 
-                <Label text="Contact:"
+
+                <Label text="Contact Number:"
                        GridPane.columnIndex="0"
                        GridPane.rowIndex="2"/>
 
                 <TextField fx:id="contactField"
-                           promptText="Contact number"
+                           promptText="Enter 10 digit contact number"
+                           prefWidth="350"
                            GridPane.columnIndex="1"
                            GridPane.rowIndex="2"/>
 
             </GridPane>
 
-            <HBox spacing="10">
+
+            <!-- ================= BUTTONS ================= -->
+
+            <HBox spacing="12"
+                  alignment="CENTER_LEFT">
 
                 <Button text="ADD PATIENT"
                         onAction="#addPatient"
-                        styleClass="dashboard-button-small"/>
+                        styleClass="action-button"/>
 
                 <Button text="UPDATE"
                         onAction="#updatePatient"
-                        styleClass="dashboard-button-small"/>
+                        styleClass="action-button"/>
 
                 <Button text="DELETE"
                         onAction="#deletePatient"
-                        styleClass="dashboard-button-small"/>
+                        styleClass="action-button"/>
 
                 <Button text="CLEAR"
                         onAction="#clearFields"
-                        styleClass="dashboard-button-small"/>
+                        styleClass="action-button"/>
 
                 <Button text="REFRESH"
                         onAction="#loadPatients"
-                        styleClass="dashboard-button-small"/>
+                        styleClass="action-button"/>
 
             </HBox>
 
+
+            <!-- ================= MESSAGE ================= -->
+
             <Label fx:id="messageLabel"
                    text=""
-                   styleClass="message"/>
+                   styleClass="message-label"/>
+
+
+            <!-- ================= PATIENT TABLE ================= -->
 
             <TableView fx:id="patientTable"
-                       prefHeight="350">
+                       VBox.vgrow="ALWAYS">
 
                 <columns>
 
@@ -111,16 +151,16 @@
                                  prefWidth="70"/>
 
                     <TableColumn fx:id="nameColumn"
-                                 text="Name"
-                                 prefWidth="180"/>
+                                 text="Patient Name"
+                                 prefWidth="200"/>
 
                     <TableColumn fx:id="addressColumn"
                                  text="Address"
-                                 prefWidth="220"/>
+                                 prefWidth="300"/>
 
                     <TableColumn fx:id="contactColumn"
                                  text="Contact Number"
-                                 prefWidth="160"/>
+                                 prefWidth="180"/>
 
                 </columns>
 
