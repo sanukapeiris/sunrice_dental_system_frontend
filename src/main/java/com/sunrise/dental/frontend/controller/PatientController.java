@@ -4,13 +4,19 @@ import com.sunrise.dental.frontend.model.Patient;
 import com.sunrise.dental.frontend.service.PatientService;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class PatientController {
 
@@ -245,13 +251,20 @@ public class PatientController {
 
         patientTable.getSelectionModel()
                 .clearSelection();
+
+        messageLabel.setText("");
     }
 
     private boolean validateFields() {
 
-        String name = nameField.getText().trim();
-        String address = addressField.getText().trim();
-        String contact = contactField.getText().trim();
+        String name =
+                nameField.getText().trim();
+
+        String address =
+                addressField.getText().trim();
+
+        String contact =
+                contactField.getText().trim();
 
         if (name.isEmpty()) {
 
@@ -292,7 +305,9 @@ public class PatientController {
         return true;
     }
 
-    private void showError(String title, String message) {
+    private void showError(
+            String title,
+            String message) {
 
         Alert alert = new Alert(
                 Alert.AlertType.ERROR
@@ -303,5 +318,51 @@ public class PatientController {
         alert.setContentText(message);
 
         alert.showAndWait();
+    }
+
+    @FXML
+    private void goBack(ActionEvent event) {
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/fxml/dashboard.fxml")
+            );
+
+            Parent dashboard = loader.load();
+
+            Scene scene = new Scene(dashboard);
+
+            scene.getStylesheets().add(
+                    getClass()
+                            .getResource("/css/style.css")
+                            .toExternalForm()
+            );
+
+            Stage stage = (Stage)
+                    ((Node) event.getSource())
+                            .getScene()
+                            .getWindow();
+
+            stage.setTitle(
+                    "Sunrise Dental Management System"
+            );
+
+            stage.setScene(scene);
+
+            stage.setWidth(1000);
+            stage.setHeight(700);
+
+            stage.centerOnScreen();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            showError(
+                    "Error",
+                    "Unable to return to Dashboard."
+            );
+        }
     }
 }
